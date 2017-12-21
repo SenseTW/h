@@ -1,0 +1,14 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'asia.gcr.io/$PROJECT_ID/hserver', '-t', 'asia.gcr.io/$PROJECT_ID/hserver:$COMMIT_SHA', '-f', './Dockerfile', '.']
+- name: 'gcr.io/cloud-builders/docker'
+  args: ["push", "asis.gcr.io/$PROJECT_ID/hserver:$COMMIT_SHA"]
+- name: 'gcr.io/cloud-builders/gcloud'
+  entrypoint: 'bash'
+  args:
+  - '-c'
+  - |
+    gcloud components install kubectl
+    gsutil cp gs://ggv-k8s-config/kubeconfig .
+    export KUBECONFIG=kubeconfig
+    kubectl set image deployment/hserver hserver=asia.gcr.io/$PROJECT_ID/hserver:$COMMIT_SHA

@@ -1,0 +1,240 @@
+# Translations template for PROJECT.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# 陳信屹 <ossug.hychen@gmail.com>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-22 16:47+0800\n"
+"PO-Revision-Date: 2017-12-22 16:31+0800\n"
+"Last-Translator: 陳信屹 <ossug.hychen@gmail.com>\n"
+"Language-Team: Language zh-Hant-TW/LC\n"
+"Language: zh-Hant-TW/LC_MESSAGES/messages\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+#: h/templates/accounts/account.html.jinja2:12
+msgid ""
+"\n"
+"        If you would like to delete your account, please email us at\n"
+"        <a class=\"link--footer\" href=\"mailto:support@hypothes.is"
+"\">support@hypothes.is</a> from your\n"
+"        registered email address, and we'll take it from there.\n"
+"      "
+msgstr ""
+
+#: h/templates/accounts/developer.html.jinja2:10
+msgid "Your API token is:"
+msgstr ""
+
+#: h/templates/accounts/developer.html.jinja2:25
+msgid "Delete your API token and generate a new one"
+msgstr ""
+
+#: h/templates/accounts/developer.html.jinja2:30
+msgid "Generate your API token"
+msgstr ""
+
+#: h/templates/accounts/reset.html.jinja2:16
+msgid ""
+"\n"
+"  Please check your email. We've sent you a reset code that you must enter\n"
+"  below in order to set your new password.\n"
+"  "
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:16
+msgid "Back"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:23
+msgid "More info"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:40
+msgid "Visit annotations in context"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:48
+msgid "Tags"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:59
+msgid "Annotators"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:72
+msgid "URL"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:117
+msgid "Untitled document"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:146
+msgid "Top tags"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:205
+#, fuzzy
+msgid "Shared annotations:"
+msgstr "搜尋標記"
+
+#: h/templates/activity/search.html.jinja2:210
+msgid "Created:"
+msgstr "建立："
+
+#: h/templates/activity/search.html.jinja2:222
+msgid "Edit group"
+msgstr "修改群組"
+
+#: h/templates/activity/search.html.jinja2:234
+msgid "Leave this group"
+msgstr "離開群組"
+
+#: h/templates/activity/search.html.jinja2:244
+msgid "Members"
+msgstr "成員"
+
+#: h/templates/activity/search.html.jinja2:257
+#, python-format
+msgid "Remove %(username)s from the search query"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:259
+#, python-format
+msgid "Limit the search to annotations by %(username)s"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:276
+msgid "Invite new members"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:298
+#, fuzzy
+msgid "Annotations:"
+msgstr "搜尋標記"
+
+#: h/templates/activity/search.html.jinja2:304
+msgid "Joined:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:310
+msgid "Location:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:317
+msgid "Link:"
+msgstr "連結："
+
+#: h/templates/activity/search.html.jinja2:328
+msgid "ORCID:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:346
+msgid "Edit profile"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:374
+#, fuzzy
+msgid "Matching Annotations"
+msgstr "搜尋標記"
+
+#: h/templates/activity/search.html.jinja2:401
+msgid "How to get started"
+msgstr "如何開始"
+
+#: h/templates/activity/search.html.jinja2:407
+msgid "Install our Chrome extension"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:411
+#, python-format
+msgid ""
+"Check out some of the\n"
+"                  <a class=\"link\" href=\"%(url)s\">\n"
+"                    recently annotated documents\n"
+"                  </a>"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:419
+#, python-format
+msgid ""
+"Let other users know more about you by\n"
+"                  <a class=\"link\" href=\"%(url)s\">\n"
+"                    adding more information to your profile\n"
+"                  </a>"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:427
+msgid ""
+"Read more about\n"
+"                  <a class=\"link\" href=\"https://hypothes.is/annotating-"
+"with-groups/\">\n"
+"                    how to annotate with groups\n"
+"                  </a>"
+msgstr ""
+
+#: h/templates/deform/form.jinja2:27
+msgid "Unable to save changes: "
+msgstr "無法儲存修改"
+
+#: h/templates/includes/annotation_card.html.jinja2:40
+msgid "This annotation is visible only to you."
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:43
+msgid "Only me"
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:68
+msgid "Visit annotation in context"
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:72
+msgid "Share this annotation"
+msgstr "分享這個標記"
+
+#: h/templates/includes/footer.html.jinja2:11
+msgid "About"
+msgstr "關於"
+
+#: h/templates/includes/footer.html.jinja2:14
+msgid "Blog"
+msgstr "部落格"
+
+#: h/templates/includes/footer.html.jinja2:22
+msgid "Help"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:30
+msgid "Contact"
+msgstr "聯絡方式"
+
+#: h/templates/includes/footer.html.jinja2:33
+msgid "Terms of Service"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:36
+msgid "Privacy Policy"
+msgstr "隱私政策"
+
+#: h/templates/includes/paginator.html.jinja2:13
+msgid "Go to previous page"
+msgstr "上一頁"
+
+#: h/templates/includes/paginator.html.jinja2:52
+msgid "Go to next page"
+msgstr "下一頁"
+
+#: h/templates/panels/navbar.html.jinja2:19
+msgid "Remove search term"
+msgstr ""
+
+#: h/templates/panels/navbar.html.jinja2:58
+msgid "Search annotations"
+msgstr "搜尋標記"

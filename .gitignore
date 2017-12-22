@@ -32,3 +32,5 @@ mail/
 
 celerybeat-schedule
 celerybeat-schedule.*
+
+.venv

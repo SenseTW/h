@@ -1,0 +1,673 @@
+# Translations template for PROJECT.
+# Copyright (C) 2017 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2017.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2017-12-24 21:46+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.5.1\n"
+
+#: h/accounts/schemas.py:49
+msgid "Sorry, an account with this email address already exists."
+msgstr ""
+
+#: h/accounts/schemas.py:58
+msgid "This username is already taken."
+msgstr ""
+
+#: h/accounts/schemas.py:82
+msgid ""
+"Sorry, an account with this username already exists. Please enter another"
+" one."
+msgstr ""
+
+#: h/accounts/schemas.py:107
+msgid "Username / email"
+msgstr ""
+
+#: h/accounts/schemas.py:112 h/accounts/schemas.py:193
+#: h/accounts/schemas.py:269
+msgid "Password"
+msgstr ""
+
+#: h/accounts/schemas.py:130 h/views/accounts.py:344
+msgid "Please check your email and open the link to activate your account."
+msgstr ""
+
+#: h/accounts/schemas.py:136
+msgid "User does not exist."
+msgstr ""
+
+#: h/accounts/schemas.py:141 h/accounts/schemas.py:261
+#: h/accounts/schemas.py:291
+msgid "Wrong password."
+msgstr ""
+
+#: h/accounts/schemas.py:151 h/accounts/schemas.py:192
+#: h/accounts/schemas.py:248
+msgid "Email address"
+msgstr ""
+
+#: h/accounts/schemas.py:165
+msgid "Unknown email address."
+msgstr ""
+
+#: h/accounts/schemas.py:179
+msgid "Must have only letters, numbers, periods, and underscores."
+msgstr ""
+
+#: h/accounts/schemas.py:184
+msgid "Username"
+msgstr ""
+
+#: h/accounts/schemas.py:185
+msgid ""
+"Must be between {min} and {max} characters, containing only letters, "
+"numbers, periods, and underscores."
+msgstr ""
+
+#: h/accounts/schemas.py:221
+msgid "Reset code has expired. Please reset your password again"
+msgstr ""
+
+#: h/accounts/schemas.py:223
+msgid "Wrong reset code."
+msgstr ""
+
+#: h/accounts/schemas.py:227
+msgid "Your reset code is not valid"
+msgstr ""
+
+#: h/accounts/schemas.py:230
+msgid "This reset code has already been used."
+msgstr ""
+
+#: h/accounts/schemas.py:239
+msgid "Reset code"
+msgstr ""
+
+#: h/accounts/schemas.py:240
+msgid "This will be emailed to you."
+msgstr ""
+
+#: h/accounts/schemas.py:243 h/accounts/schemas.py:270
+msgid "New password"
+msgstr ""
+
+#: h/accounts/schemas.py:250
+msgid "Confirm password"
+msgstr ""
+
+#: h/accounts/schemas.py:268
+msgid "Current password"
+msgstr ""
+
+#: h/accounts/schemas.py:276
+msgid "Confirm new password"
+msgstr ""
+
+#: h/accounts/schemas.py:288
+msgid "The passwords must match"
+msgstr ""
+
+#: h/accounts/schemas.py:316
+msgid "Display name"
+msgstr ""
+
+#: h/accounts/schemas.py:326 h/groups/schemas.py:53
+msgid "Description"
+msgstr ""
+
+#: h/accounts/schemas.py:332
+msgid "Location"
+msgstr ""
+
+#: h/accounts/schemas.py:340
+msgid "Link"
+msgstr ""
+
+#: h/accounts/schemas.py:346
+msgid "ORCID"
+msgstr ""
+
+#: h/accounts/schemas.py:347
+msgid "ORCID provides a persistent identifier for researchers (see orcid.org)."
+msgstr ""
+
+#: h/accounts/schemas.py:351
+msgid "Email me when someone replies to one of my annotations."
+msgstr ""
+
+#: h/activity/bucketing.py:36
+msgid "Local file"
+msgstr ""
+
+#: h/activity/bucketing.py:138
+msgid "Last 7 days"
+msgstr ""
+
+#: h/emails/flag_notification.py:27
+msgid "An annotation has been flagged"
+msgstr ""
+
+#: h/emails/reset_password.py:29
+msgid "Reset your password"
+msgstr ""
+
+#: h/emails/signup.py:31
+msgid "Please activate your account"
+msgstr ""
+
+#: h/exceptions.py:27
+msgid "Client credentials are invalid."
+msgstr ""
+
+#: h/exceptions.py:53
+msgid "Expected a valid JSON payload, but none was found!"
+msgstr ""
+
+#: h/feeds/atom.py:78 h/views/feeds.py:40
+msgid "Hypothesis Stream"
+msgstr ""
+
+#: h/feeds/atom.py:79 h/views/feeds.py:42
+msgid "The Web. Annotated"
+msgstr ""
+
+#: h/form.py:138
+msgid "Success. We've saved your changes."
+msgstr ""
+
+#: h/groups/schemas.py:26
+msgid "Sorry, this group name is not allowed. Please choose another one."
+msgstr ""
+
+#: h/groups/schemas.py:38 h/schemas/auth_client.py:18
+msgid "Name"
+msgstr ""
+
+#: h/panels/back_link.py:25
+msgid "Back to your profile page"
+msgstr ""
+
+#: h/panels/back_link.py:27
+msgid "Back to group overview page"
+msgstr ""
+
+#: h/panels/navbar.py:49
+msgid "Account details"
+msgstr ""
+
+#: h/panels/navbar.py:50 h/templates/activity/search.html.jinja2:346
+msgid "Edit profile"
+msgstr ""
+
+#: h/panels/navbar.py:51
+msgid "Notifications"
+msgstr ""
+
+#: h/panels/navbar.py:52
+msgid "Developer"
+msgstr ""
+
+#: h/panels/navbar.py:54
+msgid "Sign out"
+msgstr ""
+
+#: h/panels/navbar.py:58
+msgid "Create new group"
+msgstr ""
+
+#: h/schemas/annotation.py:149 h/schemas/annotation.py:208
+msgid "'uri' is a required property"
+msgstr ""
+
+#: h/schemas/auth_client.py:19
+msgid "This will be displayed to users in the authorization prompt"
+msgstr ""
+
+#: h/schemas/auth_client.py:24
+msgid "Authority"
+msgstr ""
+
+#: h/schemas/auth_client.py:25
+msgid "Set of users whose data this client can interact with"
+msgstr ""
+
+#: h/schemas/auth_client.py:30
+msgid "Grant type"
+msgstr ""
+
+#: h/schemas/auth_client.py:31
+msgid ""
+"\"authorization_code\" for most applications, \"jwt_bearer\" for keys for"
+" JWT grants used by publishers, \"client_credentials\" for allowing "
+"access to the user creation API"
+msgstr ""
+
+#: h/schemas/auth_client.py:37
+msgid "Trusted ⚠️"
+msgstr ""
+
+#: h/schemas/auth_client.py:38
+msgid ""
+"Trusted clients do not require user approval. ⚠️ Only enable this for "
+"official Hypothesis clients."
+msgstr ""
+
+#: h/schemas/auth_client.py:44
+msgid "Redirect URL"
+msgstr ""
+
+#: h/schemas/auth_client.py:45
+msgid ""
+"The browser will redirect to this URL after authorization. Required if "
+"grant type is \"authorization_code\""
+msgstr ""
+
+#: h/schemas/auth_client.py:56
+msgid "Client ID"
+msgstr ""
+
+#: h/schemas/auth_client.py:61
+msgid "Client secret"
+msgstr ""
+
+#: h/schemas/auth_client.py:62
+msgid ""
+"Secret used to authenticate confidential clients (ie. those which do not "
+"perform token exchange directly in the browser)"
+msgstr ""
+
+#: h/storage.py:120
+msgid "Annotation {id} does not exist"
+msgstr ""
+
+#: h/storage.py:131
+msgid "You may not create annotations in the specified group!"
+msgstr ""
+
+#: h/templates/accounts/account.html.jinja2:12
+msgid ""
+"\n"
+"        If you would like to delete your account, please email us at\n"
+"        <a class=\"link--footer\" "
+"href=\"mailto:support@hypothes.is\">support@hypothes.is</a> from your\n"
+"        registered email address, and we'll take it from there.\n"
+"      "
+msgstr ""
+
+#: h/templates/accounts/developer.html.jinja2:10
+msgid "Your API token is:"
+msgstr ""
+
+#: h/templates/accounts/developer.html.jinja2:25
+msgid "Delete your API token and generate a new one"
+msgstr ""
+
+#: h/templates/accounts/developer.html.jinja2:30
+msgid "Generate your API token"
+msgstr ""
+
+#: h/templates/accounts/login.html.jinja2:16
+msgid " Don't have a Hypothesis account? "
+msgstr ""
+
+#: h/templates/accounts/login.html.jinja2:17
+#: h/templates/panels/navbar.html.jinja2:103
+msgid " Sign up "
+msgstr ""
+
+#: h/templates/accounts/reset.html.jinja2:16
+msgid ""
+"\n"
+"  Please check your email. We've sent you a reset code that you must "
+"enter\n"
+"  below in order to set your new password.\n"
+"  "
+msgstr ""
+
+#: h/templates/accounts/signup.html.jinja2:8
+#: h/templates/accounts/signup.html.jinja2:13
+msgid " Sign up for Hypothesis "
+msgstr ""
+
+#: h/templates/accounts/signup.html.jinja2:16
+msgid " Already have an account? "
+msgstr ""
+
+#: h/templates/accounts/signup.html.jinja2:17
+#: h/templates/panels/navbar.html.jinja2:101
+msgid " Log in "
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:16
+msgid "Back"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:23
+msgid "More info"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:40
+msgid "Visit annotations in context"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:48
+msgid "Tags"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:59
+msgid "Annotators"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:72
+msgid "URL"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:117
+msgid "Untitled document"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:146
+msgid "Top tags"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:205
+msgid "Shared annotations:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:210
+msgid "Created:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:222
+msgid "Edit group"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:234
+msgid "Leave this group"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:244
+msgid "Members"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:257
+#, python-format
+msgid "Remove %(username)s from the search query"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:259
+#, python-format
+msgid "Limit the search to annotations by %(username)s"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:276
+msgid "Invite new members"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:298
+msgid "Annotations:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:304
+msgid "Joined:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:310
+msgid "Location:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:317
+msgid "Link:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:328
+msgid "ORCID:"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:374
+msgid "Matching Annotations"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:401
+msgid "How to get started"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:407
+msgid "Install our Chrome extension"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:411
+#, python-format
+msgid ""
+"Check out some of the\n"
+"                  <a class=\"link\" href=\"%(url)s\">\n"
+"                    recently annotated documents\n"
+"                  </a>"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:419
+#, python-format
+msgid ""
+"Let other users know more about you by\n"
+"                  <a class=\"link\" href=\"%(url)s\">\n"
+"                    adding more information to your profile\n"
+"                  </a>"
+msgstr ""
+
+#: h/templates/activity/search.html.jinja2:427
+msgid ""
+"Read more about\n"
+"                  <a class=\"link\" href=\"https://hypothes.is"
+"/annotating-with-groups/\">\n"
+"                    how to annotate with groups\n"
+"                  </a>"
+msgstr ""
+
+#: h/templates/deform/form.jinja2:27
+msgid "Unable to save changes: "
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:40
+msgid "This annotation is visible only to you."
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:43
+msgid "Only me"
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:68
+msgid "Visit annotation in context"
+msgstr ""
+
+#: h/templates/includes/annotation_card.html.jinja2:72
+msgid "Share this annotation"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:11
+msgid "About"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:14
+msgid "Blog"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:22
+msgid "Help"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:30
+msgid "Contact"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:33 h/views/accounts.py:300
+msgid "Terms of Service"
+msgstr ""
+
+#: h/templates/includes/footer.html.jinja2:36
+msgid "Privacy Policy"
+msgstr ""
+
+#: h/templates/includes/paginator.html.jinja2:13
+msgid "Go to previous page"
+msgstr ""
+
+#: h/templates/includes/paginator.html.jinja2:52
+msgid "Go to next page"
+msgstr ""
+
+#: h/templates/panels/navbar.html.jinja2:19
+msgid "Remove search term"
+msgstr ""
+
+#: h/templates/panels/navbar.html.jinja2:58
+msgid "Search annotations"
+msgstr ""
+
+#: h/templates/panels/navbar.html.jinja2:64
+msgid " Search… "
+msgstr ""
+
+#: h/views/accounts.py:64
+msgid "Session is invalid. Please try again."
+msgstr ""
+
+#: h/views/accounts.py:96
+msgid "Forgot your password?"
+msgstr ""
+
+#: h/views/accounts.py:103
+msgid "Log in"
+msgstr ""
+
+#: h/views/accounts.py:176
+msgid "Reset"
+msgstr ""
+
+#: h/views/accounts.py:229 h/views/accounts.py:454 h/views/accounts.py:459
+#: h/views/accounts.py:517 h/views/accounts.py:562
+#: h/views/admin_oauthclients.py:98 h/views/groups.py:75
+msgid "Save"
+msgstr ""
+
+#: h/views/accounts.py:286
+msgid ""
+"Your password has been reset. You can now <a href=\"{url}\">login</a> "
+"with your new password."
+msgstr ""
+
+#: h/views/accounts.py:303
+msgid "Community Guidelines"
+msgstr ""
+
+#: h/views/accounts.py:305
+msgid "You are agreeing to our {tos_link} and {cg_link}."
+msgstr ""
+
+#: h/views/accounts.py:312
+msgid "Sign up"
+msgstr ""
+
+#: h/views/accounts.py:381
+msgid ""
+"We didn't recognize that activation link. Have you already activated your"
+" account? If so, try <a href=\"{url}\">logging in</a> using the username "
+"and password that you provided."
+msgstr ""
+
+#: h/views/accounts.py:397
+msgid ""
+"Your account has been activated! You can now <a href=\"{url}\">log in</a>"
+" using the password you provided."
+msgstr ""
+
+#: h/views/accounts.py:422
+msgid "Your account has been activated and you're logged in."
+msgstr ""
+
+#: h/views/accounts.py:426
+msgid ""
+"You're already logged in to a different account. <a href=\"{url}\">Log "
+"out</a> and open the activation link again."
+msgstr ""
+
+#: h/views/activity.py:84
+msgid "No annotations matched your search."
+msgstr ""
+
+#: h/views/activity.py:156
+msgid "The group “{name}” has not made any annotations yet."
+msgstr ""
+
+#: h/views/activity.py:316
+msgid "{name} has not made any annotations yet."
+msgstr ""
+
+#: h/views/admin_admins.py:36 h/views/admin_staff.py:36
+msgid "User {username} doesn't exist."
+msgstr ""
+
+#: h/views/admin_badge.py:35
+msgid "{uri} is already blocked."
+msgstr ""
+
+#: h/views/admin_features.py:46
+msgid "Changes saved."
+msgstr ""
+
+#: h/views/admin_features.py:105
+msgid "User {member_name} with authority {authority} doesn't exist."
+msgstr ""
+
+#: h/views/admin_features.py:132
+msgid "User {member_userid} doesn't exist."
+msgstr ""
+
+#: h/views/admin_nipsa.py:38
+#, python-format
+msgid "Could not find user with username %s and authority %s"
+msgstr ""
+
+#: h/views/admin_nipsa.py:58
+#, python-format
+msgid "Could not find user with userid %s"
+msgstr ""
+
+#: h/views/admin_oauthclients.py:43
+msgid "Register client"
+msgstr ""
+
+#: h/views/admin_users.py:63
+msgid "User {name} has been activated!"
+msgstr ""
+
+#: h/views/api_exceptions.py:27
+msgid ""
+"Either the resource you requested doesn't exist, or you are not currently"
+" authorized to see it."
+msgstr ""
+
+#: h/views/api_exceptions.py:49
+msgid ""
+"Uh-oh, something went wrong! We're very sorry, our application wasn't "
+"able to load this page. The team has been notified and we'll fix it "
+"shortly. If the problem persists or you'd like more information please "
+"email support@hypothes.is with the subject 'Internal Server Error'."
+msgstr ""
+
+#: h/views/groups.py:26
+msgid "Create a new group"
+msgstr ""
+

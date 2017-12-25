@@ -7,7 +7,7 @@
     <h1 class="form-header">Group invitation</h1>
 
     <p class="join-group-form__label">
-      You've been invited to join the annotation group:
+      {% trans %} You've been invited to join the annotation group: {% endtrans %}
     </p>
 
     <div class="join-group-form__container">
@@ -20,14 +20,14 @@
       {% if request.authenticated_userid %}
         <form method="POST">
           <button class="btn primary-action-btn group-form__submit-btn" name="group_join" type="submit">
-            Join {{ group.name }}
+            {% trans %} Join {% endtrans %} {{ group.name }}
           </button>
         </form>
       {% else %}
         <form method="GET" action="{{ request.route_url('login') }}">
           <input type="hidden" name="next" value="{{ request.path }}">
           <button class="btn primary-action-btn group-form__submit-btn" type="submit">
-            Log in to join {{ group.name }}
+            {% trans %} Log in to join {% endtrans %} {{ group.name }}
           </button>
         </form>
       {% endif %}
@@ -35,6 +35,6 @@
   </div>
 
   <footer class="form-footer">
-    What is Hypothesis? <a class="link--footer" href="https://hypothes.is/about">Learn more</a>
+<!--    What is Hypothesis? <a class="link--footer" href="https://hypothes.is/about">Learn more</a> -->
   </footer>
 {% endblock page_content %}

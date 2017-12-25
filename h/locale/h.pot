@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-24 21:46+0800\n"
+"POT-Creation-Date: 2017-12-25 19:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -209,14 +209,15 @@ msgid "Account details"
 msgstr ""
 
 #: h/panels/navbar.py:50 h/templates/activity/search.html.jinja2:346
+#: h/templates/layouts/account.html.jinja2:5
 msgid "Edit profile"
 msgstr ""
 
-#: h/panels/navbar.py:51
+#: h/panels/navbar.py:51 h/templates/layouts/account.html.jinja2:6
 msgid "Notifications"
 msgstr ""
 
-#: h/panels/navbar.py:52
+#: h/panels/navbar.py:52 h/templates/layouts/account.html.jinja2:7
 msgid "Developer"
 msgstr ""
 
@@ -480,6 +481,34 @@ msgstr ""
 msgid "Unable to save changes: "
 msgstr ""
 
+#: h/templates/groups/about-groups.html.jinja2:3
+msgid " Groups let you annotate and discuss content on the web privately. "
+msgstr ""
+
+#: h/templates/groups/create.html.jinja2:6
+msgid " Create a new group "
+msgstr ""
+
+#: h/templates/groups/create.html.jinja2:16
+msgid " Required "
+msgstr ""
+
+#: h/templates/groups/edit.html.jinja2:6
+msgid " Edit group details "
+msgstr ""
+
+#: h/templates/groups/join.html.jinja2:10
+msgid " You've been invited to join the annotation group: "
+msgstr ""
+
+#: h/templates/groups/join.html.jinja2:23
+msgid " Join "
+msgstr ""
+
+#: h/templates/groups/join.html.jinja2:30
+msgid " Log in to join "
+msgstr ""
+
 #: h/templates/includes/annotation_card.html.jinja2:40
 msgid "This annotation is visible only to you."
 msgstr ""
@@ -528,6 +557,10 @@ msgstr ""
 msgid "Go to next page"
 msgstr ""
 
+#: h/templates/layouts/account.html.jinja2:4
+msgid "Account"
+msgstr ""
+
 #: h/templates/panels/navbar.html.jinja2:19
 msgid "Remove search term"
 msgstr ""
@@ -538,6 +571,14 @@ msgstr ""
 
 #: h/templates/panels/navbar.html.jinja2:64
 msgid " Search… "
+msgstr ""
+
+#: h/templates/panels/navbar.html.jinja2:84
+msgid "Groups"
+msgstr ""
+
+#: h/templates/panels/navbar.html.jinja2:93
+msgid "Settings"
 msgstr ""
 
 #: h/views/accounts.py:64

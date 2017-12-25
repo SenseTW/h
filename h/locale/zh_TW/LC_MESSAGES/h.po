@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-24 21:46+0800\n"
+"POT-Creation-Date: 2017-12-25 19:00+0800\n"
 "PO-Revision-Date: 2017-12-24 21:13+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hant_TW\n"
@@ -151,7 +151,7 @@ msgstr "當有人回應我的註記時寄 Email 通知我。"
 
 #: h/activity/bucketing.py:36
 msgid "Local file"
-msgstr ""
+msgstr "本地檔案"
 
 #: h/activity/bucketing.py:138
 msgid "Last 7 days"
@@ -210,14 +210,15 @@ msgid "Account details"
 msgstr "帳號細節"
 
 #: h/panels/navbar.py:50 h/templates/activity/search.html.jinja2:346
+#: h/templates/layouts/account.html.jinja2:5
 msgid "Edit profile"
 msgstr "修改個人介面"
 
-#: h/panels/navbar.py:51
+#: h/panels/navbar.py:51 h/templates/layouts/account.html.jinja2:6
 msgid "Notifications"
 msgstr "通知"
 
-#: h/panels/navbar.py:52
+#: h/panels/navbar.py:52 h/templates/layouts/account.html.jinja2:7
 msgid "Developer"
 msgstr "開發者"
 
@@ -366,19 +367,19 @@ msgstr ""
 
 #: h/templates/activity/search.html.jinja2:48
 msgid "Tags"
-msgstr ""
+msgstr "標籤"
 
 #: h/templates/activity/search.html.jinja2:59
 msgid "Annotators"
-msgstr ""
+msgstr "註解者"
 
 #: h/templates/activity/search.html.jinja2:72
 msgid "URL"
-msgstr ""
+msgstr "網址"
 
 #: h/templates/activity/search.html.jinja2:117
 msgid "Untitled document"
-msgstr ""
+msgstr "無標題的文件"
 
 #: h/templates/activity/search.html.jinja2:146
 msgid "Top tags"
@@ -440,15 +441,15 @@ msgstr ""
 
 #: h/templates/activity/search.html.jinja2:374
 msgid "Matching Annotations"
-msgstr ""
+msgstr "符合的註記"
 
 #: h/templates/activity/search.html.jinja2:401
 msgid "How to get started"
-msgstr ""
+msgstr "如何開始"
 
 #: h/templates/activity/search.html.jinja2:407
 msgid "Install our Chrome extension"
-msgstr ""
+msgstr "安裝我們的 Chrome 擴充功能"
 
 #: h/templates/activity/search.html.jinja2:411
 #, python-format
@@ -480,6 +481,34 @@ msgstr ""
 #: h/templates/deform/form.jinja2:27
 msgid "Unable to save changes: "
 msgstr "無法儲存"
+
+#: h/templates/groups/about-groups.html.jinja2:3
+msgid " Groups let you annotate and discuss content on the web privately. "
+msgstr "群組讓你可以註解跟討論。"
+
+#: h/templates/groups/create.html.jinja2:6
+msgid " Create a new group "
+msgstr "建立新群組"
+
+#: h/templates/groups/create.html.jinja2:16
+msgid " Required "
+msgstr "必要"
+
+#: h/templates/groups/edit.html.jinja2:6
+msgid " Edit group details "
+msgstr "修改群組頁面"
+
+#: h/templates/groups/join.html.jinja2:10
+msgid " You've been invited to join the annotation group: "
+msgstr "你被邀請參加這個群組："
+
+#: h/templates/groups/join.html.jinja2:23
+msgid " Join "
+msgstr "加入"
+
+#: h/templates/groups/join.html.jinja2:30
+msgid " Log in to join "
+msgstr "登入以加入"
 
 #: h/templates/includes/annotation_card.html.jinja2:40
 msgid "This annotation is visible only to you."
@@ -529,6 +558,10 @@ msgstr "上一頁"
 msgid "Go to next page"
 msgstr "下一頁"
 
+#: h/templates/layouts/account.html.jinja2:4
+msgid "Account"
+msgstr "帳號"
+
 #: h/templates/panels/navbar.html.jinja2:19
 msgid "Remove search term"
 msgstr ""
@@ -539,7 +572,15 @@ msgstr "搜尋註記"
 
 #: h/templates/panels/navbar.html.jinja2:64
 msgid " Search… "
-msgstr ""
+msgstr "搜尋。。。"
+
+#: h/templates/panels/navbar.html.jinja2:84
+msgid "Groups"
+msgstr "群組"
+
+#: h/templates/panels/navbar.html.jinja2:93
+msgid "Settings"
+msgstr "設定"
 
 #: h/views/accounts.py:64
 msgid "Session is invalid. Please try again."

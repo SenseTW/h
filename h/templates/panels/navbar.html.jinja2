@@ -81,7 +81,7 @@
       <span class="nav-bar-links__item">
       {% call dropdown_menu(groups_menu_items,
                             link_class='nav-bar-links__link',
-                            title='Groups',
+                            title=_('Groups'),
                             footer_item=create_group_item) %}
         Groups <span class="nav-bar-links__dropdown-arrow">▾</span>
       {% endcall %}
@@ -90,7 +90,7 @@
       {% call dropdown_menu(settings_menu_items,
                             link_class='nav-bar-links__link',
                             fallback_link='{{ request.route_url("account") }}',
-                            title='Settings',
+                            title=_('Settings'),
                             footer_item=signout_item) %}
           {{ svg_icon('settings') }}
           <span class="nav-bar-links__dropdown-arrow" href="">▾</span>

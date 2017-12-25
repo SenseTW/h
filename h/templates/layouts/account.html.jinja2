@@ -1,10 +1,10 @@
 {% extends "h:templates/layouts/base.html.jinja2" %}
 
 {%- set nav_pages = [
-    ('account', 'Account'),
-    ('account_profile', 'Edit profile'),
-    ('account_notifications', 'Notifications'),
-    ('account_developer', 'Developer'),
+    ('account', _('Account')),
+    ('account_profile', _('Edit profile')),
+    ('account_notifications', _('Notifications')),
+    ('account_developer', _('Developer')),
 ] -%}
 
 {% block page_title %}{{ page_title }}{% endblock %}

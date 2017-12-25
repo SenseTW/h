@@ -3,7 +3,7 @@
 {% set page_title = 'Create a new group' %}
 
 {% block page_content %}
-  <h1 class="form-header">Create a new group</h1>
+  <h1 class="form-header">{% trans %} Create a new group {% endtrans %} </h1>
   {{ form }}
 
   <footer class="form-footer">
@@ -13,7 +13,7 @@
       *
       </span>
       <span class="form-footer__text">
-        Required
+        {% trans %} Required {% endtrans %}
       </span>
     </span>
   </footer>

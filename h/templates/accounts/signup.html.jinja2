@@ -5,16 +5,16 @@
 {% endblock %}
 
 {% block page_title %}
-Sign up for Hypothesis
+{% trans %} Sign up for Hypothesis {% endtrans %}
 {% endblock %}
 
 {% block content %}
 <div class="form-container content">
-  <h1 class="form-header">Sign up for Hypothesis</h1>
+  <h1 class="form-header">{% trans %} Sign up for Hypothesis {% endtrans %}</h1>
   {{ form }}
   <footer class="form-footer">
-    Already have an account?
-    <a class="link--footer" href="{{ request.route_path('login') }}">Log in</a>
+    {% trans %} Already have an account? {% endtrans %}
+    <a class="link--footer" href="{{ request.route_path('login') }}">{% trans %} Log in {% endtrans %}</a>
   </footer>
 </div>
 {% endblock content %}

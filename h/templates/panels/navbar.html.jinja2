@@ -61,7 +61,7 @@
                  autocomplete="off"
                  data-ref="searchBarInput"
                  name="q"
-                 placeholder="Search…"
+                 placeholder="{% trans %} Search… {% endtrans %}"
                  role="combobox"
                  value="{{ q }}">
         </div>
@@ -98,9 +98,9 @@
       </span>
       {% else %}
       <a class="nav-bar-links__item nav-bar-links__link"
-         href="{{ request.route_url('login') }}">Log in</a>
+         href="{{ request.route_url('login') }}">{% trans %} Log in {% endtrans %}</a>
       <a class="nav-bar-links__item nav-bar-links__link"
-         href="{{ request.route_url('signup') }}">Sign up</a>
+         href="{{ request.route_url('signup') }}">{% trans %} Sign up {% endtrans %}</a>
       {% endif %}
     </nav>
   </div>

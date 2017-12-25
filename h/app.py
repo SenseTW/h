@@ -6,6 +6,7 @@ from __future__ import unicode_literals
 
 from h._compat import urlparse
 import logging
+import os
 
 import transaction
 from pyramid.settings import asbool
@@ -57,7 +58,7 @@ def includeme(config):
     config.add_tween('h.tweens.cache_header_tween_factory')
 
     config.add_request_method(in_debug_mode, 'debug', reify=True)
-
+    config.add_translation_dirs('/Users/hychen/github/h/h/locale')
     config.include('pyramid_jinja2')
     config.add_jinja2_extension('h.jinja_extensions.Filters')
     config.add_jinja2_extension('h.jinja_extensions.SvgIcon')

@@ -81,7 +81,7 @@ class Annotation(Base):
     #: shared=False.
     shared = sa.Column(sa.Boolean,
                        nullable=False,
-                       default=False,
+                       default=true,
                        server_default=sa.sql.expression.false())
 
     #: The URI of the annotated page, as provided by the client.

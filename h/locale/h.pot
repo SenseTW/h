@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-26 18:33+0800\n"
+"POT-Creation-Date: 2017-12-26 18:44+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -446,11 +446,11 @@ msgstr ""
 msgid "How to get started"
 msgstr ""
 
-#: h/templates/activity/search.html.jinja2:407
+#: h/templates/activity/search.html.jinja2:408
 msgid "Install our Chrome extension"
 msgstr ""
 
-#: h/templates/activity/search.html.jinja2:411
+#: h/templates/activity/search.html.jinja2:416
 #, python-format
 msgid ""
 "Check out some of the\n"
@@ -459,7 +459,7 @@ msgid ""
 "                  </a>"
 msgstr ""
 
-#: h/templates/activity/search.html.jinja2:419
+#: h/templates/activity/search.html.jinja2:424
 #, python-format
 msgid ""
 "Let other users know more about you by\n"
@@ -468,7 +468,7 @@ msgid ""
 "                  </a>"
 msgstr ""
 
-#: h/templates/activity/search.html.jinja2:427
+#: h/templates/activity/search.html.jinja2:433
 msgid ""
 "Read more about\n"
 "                  <a class=\"link\" href=\"https://hypothes.is"
@@ -479,6 +479,10 @@ msgstr ""
 
 #: h/templates/deform/form.jinja2:27
 msgid "Unable to save changes: "
+msgstr ""
+
+#: h/templates/deform/form.jinja2:32 h/templates/deform/form.jinja2:36
+msgid "Cancel"
 msgstr ""
 
 #: h/templates/groups/about-groups.html.jinja2:3

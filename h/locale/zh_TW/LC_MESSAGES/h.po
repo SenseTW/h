@@ -459,6 +459,10 @@ msgid ""
 "                    recently annotated documents\n"
 "                  </a>"
 msgstr ""
+"看看最近\n"
+"                  <a class=\"link\" href=\"%(url)s\">\n"
+"                    被註記的文件\n"
+"                  </a>"
 
 #: h/templates/activity/search.html.jinja2:419
 #, python-format
@@ -468,6 +472,9 @@ msgid ""
 "                    adding more information to your profile\n"
 "                  </a>"
 msgstr ""
+"<a class=\"link\" href=\"%(url)s\">\n"
+"增加更多個人資訊</a>\n"
+"讓更多人更了解你\n"
 
 #: h/templates/activity/search.html.jinja2:427
 msgid ""

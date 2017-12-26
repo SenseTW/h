@@ -401,11 +401,16 @@
               {%- trans %}How to get started{% endtrans -%}
             </h2>
             <ol class="search-result-zero__list">
-              <li class="search-result-zero__list-item"><!--
-                !--><a class="link"
+              <!--
+              <li class="search-result-zero__list-item">
+                <a class="link"
                        href="{{ request.route_url('chrome-extension') }}">
                   {%- trans %}Install our Chrome extension{% endtrans -%}
                 </a>
+              </li>
+              -->
+              <li class="search-result-zero__list-item">
+              點選 <a href='https://via.sense.tw'><button>這裡</button></a> 開始註記
               </li>
               <li class="search-result-zero__list-item">
                 {%- trans url=request.route_url('activity.search') -%}
@@ -423,6 +428,7 @@
                   </a>
                 {%- endtrans -%}
               </li>
+              <!--
               <li class="search-result-zero__list-item">
                 {%- trans -%}
                   Read more about
@@ -431,6 +437,7 @@
                   </a>
                 {%- endtrans -%}
               </li>
+              -->
             </ol>
           </div>
         {% else %}

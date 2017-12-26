@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-12-25 19:00+0800\n"
+"POT-Creation-Date: 2017-12-26 18:33+0800\n"
 "PO-Revision-Date: 2017-12-24 21:13+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hant_TW\n"
@@ -575,6 +575,7 @@ msgid " Search… "
 msgstr "搜尋。。。"
 
 #: h/templates/panels/navbar.html.jinja2:84
+#: h/templates/panels/navbar.html.jinja2:86
 msgid "Groups"
 msgstr "群組"
 
@@ -712,4 +713,7 @@ msgstr ""
 #: h/views/groups.py:26
 msgid "Create a new group"
 msgstr "建立新群組"
+
+#~ msgid " Groups "
+#~ msgstr ""
 

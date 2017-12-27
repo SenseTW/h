@@ -5,10 +5,10 @@ MAINTAINER Hypothes.is Project and contributors
 RUN apk-install \
     ca-certificates \
     collectd \
-    collectd-nginx \
+#    collectd-nginx \
     libffi \
     libpq \
-    nginx \
+#    nginx \
     python \
     py-pip \
     nodejs \
@@ -19,7 +19,7 @@ RUN addgroup -S hypothesis && adduser -S -G hypothesis -h /var/lib/hypothesis hy
 WORKDIR /var/lib/hypothesis
 
 # Ensure nginx state and log directories writeable by unprivileged user.
-RUN chown -R hypothesis:hypothesis /var/log/nginx /var/lib/nginx
+#RUN chown -R hypothesis:hypothesis /var/log/nginx /var/lib/nginx
 
 # Copy minimal data to allow installation of dependencies.
 COPY requirements.txt ./
@@ -35,7 +35,7 @@ RUN apk-install --virtual build-deps \
   && apk del build-deps
 
 # Copy nginx config
-COPY conf/nginx.conf /etc/nginx/nginx.conf
+#COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 # Copy collectd config
 COPY conf/collectd.conf /etc/collectd/collectd.conf

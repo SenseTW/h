@@ -91,7 +91,7 @@ def error_validation(error, request):
 class AuthController(object):
 
     def __init__(self, request):
-        form_footer = '<a class="link" href="{href}">{text}</a>'.format(
+        form_footer = u'<a class="link" href="{href}">{text}</a>'.format(
             href=request.route_path('forgot_password'),
             text=_('Forgot your password?'))
 

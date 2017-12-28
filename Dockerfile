@@ -31,7 +31,8 @@ RUN apk-install --virtual build-deps \
     postgresql-dev \
     python-dev \
   && pip install --no-cache-dir -U pip supervisor \
-  && pip install --no-cache-dir -r requirements.txt \
+#  && pip install --no-cache-dir -r requirements.in \
+  && pip install --no-cache-dir -r requirements-dev.in \
   && apk del build-deps
 
 # Copy nginx config

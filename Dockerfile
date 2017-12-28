@@ -23,6 +23,9 @@ WORKDIR /var/lib/hypothesis
 
 # Copy minimal data to allow installation of dependencies.
 COPY requirements.txt ./
+COPY requirements.in ./
+COPY requirements-dev.in ./
+COPY tox.ini ./
 
 # Install build deps, build, and then clean up.
 RUN apk-install --virtual build-deps \
@@ -32,7 +35,7 @@ RUN apk-install --virtual build-deps \
     python-dev \
   && pip install --no-cache-dir -U pip supervisor \
 #  && pip install --no-cache-dir -r requirements.in \
-  && pip install --no-cache-dir -r requirements-dev.in \
+  && pip install --no-cache-dir -r requirements-dev.in tox \
   && apk del build-deps
 
 # Copy nginx config

@@ -30,6 +30,7 @@ def includeme(config):
                      '/users/{username}',
                      factory='h.models.user:UserFactory',
                      traverse='/{username}')
+    config.add_route('activity.annotation_search', '/annotation')
 
     # Admin
     config.add_route('admin_index', '/admin/')

@@ -331,6 +331,33 @@ class UserSearchController(SearchController):
         return _toggle_tag_facet(self.request)
 
 
+@view_defaults(route_name='activity.annotation_search',
+               renderer='h:templates/activity/annotation.html.jinja2')
+class AnnotationSearchController(SearchController):
+    """View callables unique to the "activity.annotation_search" route."""
+
+    def __init__(self, request):
+        super(AnnotationSearchController, self).__init__(request)
+
+    @view_config(request_method='GET')
+    def search(self):
+        result = super(AnnotationSearchController, self).search()
+
+        return result
+
+    @view_config(request_param='back')
+    def back(self):
+        return _back(self.request)
+
+    @view_config(request_param='delete_lozenge')
+    def delete_lozenge(self):
+        return _delete_lozenge(self.request)
+
+    @view_config(request_param='toggle_tag_facet')
+    def toggle_tag_facet(self):
+        return _toggle_tag_facet(self.request)
+
+
 def _parsed_query(request):
     """
     Return the parsed (MultiDict) query from the given request.

@@ -117,12 +117,6 @@
             {% trans %}Untitled document{% endtrans %}
         {% endif %}
         </a>
-        <a class="link--plain search-result-bucket__title"
-           href="annotation?q=url%3A{{ bucket.uri }}"
-           title="See all annotations"
-           target="_blank"
-           data-ref="postLink">
-           all annotations</a>
         <div title="{{ bucket.annotations_count }} annotations added"
              class="search-result-bucket__annotations-count">
           <div class="search-result-bucket__annotations-count-container">
@@ -136,7 +130,7 @@
   <div class="search-result-bucket__content">
     <div class="search-result-bucket__annotation-cards-container" data-ref="content">
       <ol class="search-result-bucket__annotation-cards">
-        {% for result in bucket.presented_annotations %}
+        {% for result in bucket.sorted_annotations %}
           {{ annotation_card(result, request, tag_link) }}
         {% endfor %}
       </ol>

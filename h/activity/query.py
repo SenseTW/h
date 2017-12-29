@@ -137,8 +137,37 @@ def execute(request, query, page_size):
                     'html_link': links.html_link(request, annotation),
                     'incontext_link': links.incontext_link(request, annotation)
                 })
+            bucket.sorted_annotations = []
+            for annotation in sorted(bucket.annotations, cmp=_sort_by_position):
+                bucket.sorted_annotations.append({
+                    'annotation': presenters.AnnotationHTMLPresenter(annotation),
+                    'group': groups.get(annotation.groupid),
+                    'html_link': links.html_link(request, annotation),
+                    'incontext_link': links.incontext_link(request, annotation)
+                })
 
     return result
+
+
+def _sort_by_position(a, b):
+    a_start = 0
+    a_end = 0
+    b_start = 0
+    b_end = 0
+
+    for selector in a.target_selectors:
+        if selector['type'] == 'TextPositionSelector':
+            a_start = selector['start']
+            a_end = selector['end']
+    for selector in b.target_selectors:
+        if selector['type'] == 'TextPositionSelector':
+            b_start = selector['start']
+            b_end = selector['end']
+
+    if a_start != b_start:
+        return a_start - b_start
+    else:
+        return a_end - b_end
 
 
 def aggregations_for(query):

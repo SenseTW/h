@@ -67,6 +67,9 @@ def includeme(config):
     # Assets
     config.add_route('assets', '/assets/*subpath')
 
+    # Guideline
+    config.add_route('guideline', '/guideline')
+
     # API
 
     # For historical reasons, the `api` route ends with a trailing slash. This

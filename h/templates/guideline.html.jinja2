@@ -1,0 +1,86 @@
+{% extends "h:templates/layouts/base.html.jinja2" %}
+
+{% block header %}
+  {{ panel('navbar') }}
+{% endblock %}
+
+{% block content %}
+  <div class="guideline-container">
+    <h1>UI Components</h1>
+
+    <h2>Search Lozenge</h2>
+    <div class="lozenge js-lozenge">
+      <div class="lozenge__content">
+        <span class="lozenge__facet-name">url:</span>
+        <span class="lozenge__facet-value">http://sayit.archive.tw/vtaiwan及join平台之分析訪談唐鳳</span>
+      </div>
+      <button class="lozenge__close" type="button" name="delete_lozenge" title="Remove search term">
+        <svg xmlns="http://www.w3.org/2000/svg" class="svg-icon" height="10px" version="1.1" viewBox="0 0 10 10" width="10px">
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <g fill="none" fill-rule="evenodd" id="Page-1" stroke="none" stroke-width="1">
+            <g fill="currentColor" id="Artboard">
+              <polygon id="Combined-Shape" points="3.58578644 5 1.29289322 7.29289322 0.585786438 8 2 9.41421356 2.70710678 8.70710678 5 6.41421356 7.29289322 8.70710678 8 9.41421356 9.41421356 8 8.70710678 7.29289322 6.41421356 5 8.70710678 2.70710678 9.41421356 2 8 0.585786438 7.29289322 1.29289322 5 3.58578644 2.70710678 1.29289322 2 0.585786438 0.585786438 2 1.29289322 2.70710678"></polygon>
+            </g>
+          </g>
+        </svg>
+      </button>
+    </div>
+
+    <h2>Annotations Count</h2>
+    <div class="search-result-bucket__annotations-count-container">
+      10
+    </div>
+
+    <h2>Annotation Card</h2>
+    <div class="annotation-card">
+      <div class="annotation-card__header">
+        <div class="annotation-card__username-timestamp">
+          <a title="username" href="#" class="annotation-card__username">caasi</a>
+          <a title="date" href="#" class="annotation-card__timestamp">5 Jan 2018</a>
+        </div>
+        <div class="annotation-card__share-info">
+          <a title="group" href="#" class="annotation-card__groupname">
+            in
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:ns1="http://www.inkscape.org/namespaces/inkscape" xmlns:ns2="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:ns4="http://creativecommons.org/ns#" xmlns:ns6="http://www.bohemiancoding.com/sketch/ns" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" class="svg-icon annotation-card__groups-icon" height="120px" id="svg2" version="1.1" viewBox="0 0 120 120" width="120px" ns2:docname="groups.svg" ns1:version="0.91 r13725">
+              <metadata id="metadata18">
+                <rdf:rdf>
+                  <ns4:work rdf:about="">
+                    <dc:format>image/svg+xml</dc:format>
+                    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"></dc:type>
+                  </ns4:work>
+                </rdf:rdf>
+              </metadata>
+              <ns2:namedview bordercolor="#666666" borderopacity="1" gridtolerance="10" guidetolerance="10" id="namedview16" objecttolerance="10" pagecolor="#ffffff" showgrid="false" ns1:current-layer="svg2" ns1:cx="46.892284" ns1:cy="60" ns1:pageopacity="0" ns1:pageshadow="2" ns1:window-height="607" ns1:window-maximized="0" ns1:window-width="1080" ns1:window-x="520" ns1:window-y="123" ns1:zoom="1.9666667"></ns2:namedview>
+              <desc id="desc6">Created with Sketch.</desc>
+              <defs id="defs8"></defs>
+              <g id="Page-1" style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1" transform="translate(0.50847458,7.627119)" ns6:type="MSPage">
+                <g fill="currentColor" id="Artboard-1" ns6:type="MSArtboardGroup">
+                  <circle cx="36" cy="41" id="Oval-1" r="18" ns6:type="MSShapeGroup"></circle>
+                  <circle cx="84" cy="41" id="Oval-1-Copy" r="18" ns6:type="MSShapeGroup"></circle>
+                  <path d="m 72,97.041748 44,0 L 116,85 c 0,0 0,-19 -32,-19 -9.06502,0 -15.561747,1.524724 -20.217828,3.710318 1.214568,0.986788 2.306029,2.05955 3.277473,3.213139 2.135429,2.535822 3.518643,5.273433 4.291509,8.026767 0.276063,0.983477 0.45577,1.908217 0.557712,2.755611 C 71.975452,84.259334 72,84.696591 72,85 l 0,12.041748 z" id="Path-1-Copy-2" ns6:type="MSShapeGroup" ns1:connector-curvature="0"></path>
+                  <path d="m 4,97.041748 64,0 L 68,85 C 68,85 68,66 36,66 4,66 4.0041989,85 4.0041989,85 L 4,97.041748 Z" id="Path-1" ns6:type="MSShapeGroup" ns1:connector-curvature="0"></path>
+                </g>
+              </g>
+            </svg>
+            Public
+          </a>
+        </div>
+      </div>
+      <blockquote title="Annotation quote" class="annotation-card__quote">
+        公共政策長期以來
+      </blockquote>
+      <p class="annotation-card__text"></p>
+      <p>什麼？</p>
+      <p></p>
+      <div title="Tags" class="annotation-card__tags">
+      </div>
+      <footer class="annotation-card__footer">
+      </footer>
+    </div>
+  </div>
+{% endblock %}
+
+{% block footer %}
+  {% include "h:templates/includes/footer.html.jinja2" %}
+{% endblock %}

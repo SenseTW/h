@@ -12,9 +12,9 @@ from pyramid import i18n
 from h._compat import urlparse
 from h import links
 from h import presenters
+from h import i18n
 
-
-_ = i18n.TranslationStringFactory(__package__)
+_ = i18n.TranslationString
 
 
 class DocumentBucket(object):

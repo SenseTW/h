@@ -127,6 +127,7 @@ def execute(request, query, page_size):
     groups = {g.pubid: g for g in _fetch_groups(request.db, group_pubids)}
 
     # Add group information to buckets and present annotations
+    result.all_annotations = []
     for timeframe in result.timeframes:
         for bucket in timeframe.document_buckets.values():
             bucket.presented_annotations = []
@@ -137,14 +138,23 @@ def execute(request, query, page_size):
                     'html_link': links.html_link(request, annotation),
                     'incontext_link': links.incontext_link(request, annotation)
                 })
-            bucket.sorted_annotations = []
-            for annotation in sorted(bucket.annotations, cmp=_sort_by_position):
-                bucket.sorted_annotations.append({
-                    'annotation': presenters.AnnotationHTMLPresenter(annotation),
-                    'group': groups.get(annotation.groupid),
-                    'html_link': links.html_link(request, annotation),
-                    'incontext_link': links.incontext_link(request, annotation)
-                })
+                result.all_annotations.append(annotation)
+    result.all_annotations = sorted(result.all_annotations, cmp=_sort_by_position);
+    if len(result.timeframes):
+        if len(result.timeframes[0].document_buckets.values()):
+            bucket = result.timeframes[0].document_buckets.values()[0]
+            result.domain = bucket.domain
+            result.title = bucket.title
+            result.uri = bucket.uri
+    result.sorted_annotations = []
+    for annotation in result.all_annotations:
+        result.sorted_annotations.append({
+            'annotation': presenters.AnnotationHTMLPresenter(annotation),
+            'group': groups.get(annotation.groupid),
+            'html_link': links.html_link(request, annotation),
+            'incontext_link': links.incontext_link(request, annotation)
+        })
+    result.annotations_count = len(result.sorted_annotations)
 
     return result
 

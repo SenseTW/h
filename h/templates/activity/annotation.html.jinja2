@@ -54,18 +54,6 @@
       {% endfor %}
     </ul>
   {% endif %}
-  <h4 title="annotators" class="search-bucket-stats__key">
-    {{ svg_icon('account', css_class='search-bucket-stats__icon') }}
-    {% trans %}Annotators{% endtrans %}
-  </h4>
-  <ul class="search-bucket-stats__val">
-    {% for user in bucket.users %}
-      <li class="search-bucket-stats__username">
-        <a class="link--plain"
-           href="{{ user_link(user) }}">{{ username_from_id(user) }}</a>
-      </li>
-    {% endfor %}
-  </ul>
   {% if bucket.uri %}
     <h4 title="url" div class="search-bucket-stats__key">
       {{ svg_icon('link', css_class='search-bucket-stats__icon') }}
@@ -92,7 +80,7 @@
 {#
   A collapsible bucket/group of annotations
 #}
-{% macro search_result_bucket(bucket) %}
+{% macro search_result_bucket(bucket, result) %}
 <div class="search-result-bucket js-search-bucket">
 
   {# The header is the clickable area that expands/collapses the bucket when
@@ -360,100 +348,69 @@
 
 {% block content %}
   <div class="search-result-container">
-    {% if group %}
-      {{ search_result_nav(group.name) }}
-    {% elif user %}
-      {{ search_result_nav(user.name) }}
-    {% endif %}
-
-    {% if search_results.timeframes %}
-
-      <div class="search-results {%- if more_info %} search-result-hide-on-small-screens{% endif %}">
-
-        {% if q or user or group %}
-        <div class="search-results__total"> {{search_results.total}} <b>{% trans %}Matching Annotations{% endtrans %}</b></div>
-        {% endif %}
-
-        <ol class="search-results__list"
-            role="list"
-            aria-label="Search results grouped by date">
-          {% for timeframe in search_results.timeframes %}
-          <li class="search-result__timeframe">
-            {{ timeframe.label }}
-          </li>
-          {% for bucket in timeframe.document_buckets.values() %}
-          <li role="listitem">
-            {{ search_result_bucket(bucket) }}
-          </li>
-          {% endfor %}
-          {% endfor %}
-        </ol>
-
-        {% if page.max > 1 %}
-          {% include "h:templates/includes/paginator.html.jinja2" %}
-        {% endif %}
-      </div>
-    {% else %}
-      <div class="search-result-zero {%- if more_info %} search-result-hide-on-small-screens{% endif %}">
-        {% if zero_message == '__SHOW_GETTING_STARTED__' %}
-          <div>
-            <h2 class="search-result-zero__title">
-              {%- trans %}How to get started{% endtrans -%}
-            </h2>
-            <ol class="search-result-zero__list">
-              <!--
-              <li class="search-result-zero__list-item">
-                <a class="link"
-                       href="{{ request.route_url('chrome-extension') }}">
-                  {%- trans %}Install our Chrome extension{% endtrans -%}
+    <div class="search-results">
+      <ol class="search-results__list" role="list" aria-label="Search results grouped by data">
+        <li role="listitem">
+          <div class="search-result-bucket js-search-bucket">
+            <div class="search-result-bucket__header" data-ref="header">
+              <div class="search-result-bucket__domain">
+                <span class="search-result-bucket__domain-text">{{ search_results.domain }}</span>
+                <a class="link--plain search-result-bucket__domain-link"
+                   href="#"
+                   title="Visit annotations in context"
+                   target="_blank"
+                   data-ref="domainLink">
+                   {{ search_results.domain }}
+                   {{ svg_icon('up-right-arrow', css_class='search-result-bucket__incontext-icon')  }}</a>
+              </div>
+              <div class="search-result-bucket__title-and-annotations-count">
+                <a title="expand annotations for this url" data-ref="title" href="#" class="search-result-bucket__title">
+                {% if search_results.title %}
+                  {{ search_results.title }}
+                {% endif %}
                 </a>
-              </li>
-              -->
-              <li class="search-result-zero__list-item">
-              點選 <a href='https://via.sense.tw'><button>這裡</button></a> 開始註記
-              </li>
-              <li class="search-result-zero__list-item">
-                {%- trans url=request.route_url('activity.search') -%}
-                  Check out some of the
-                  <a class="link" href="{{ url }}">
-                    recently annotated documents
-                  </a>
-                {%- endtrans -%}
-              </li>
-              <li class="search-result-zero__list-item">
-                {%- trans url=user.edit_url -%}
-                  Let other users know more about you by
-                  <a class="link" href="{{ url }}">
-                    adding more information to your profile
-                  </a>
-                {%- endtrans -%}
-              </li>
-              <!--
-              <li class="search-result-zero__list-item">
-                {%- trans -%}
-                  Read more about
-                  <a class="link" href="https://hypothes.is/annotating-with-groups/">
-                    how to annotate with groups
-                  </a>
-                {%- endtrans -%}
-              </li>
-              -->
-            </ol>
+                <div title="{{ search_results.annotations_count }} annotations added"
+                     class="search-result-bucket__annotations-count">
+                  <div class="search-result-bucket__annotations-count-container">
+                    {{ search_results.annotations_count }}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="search-result-bucket__content">
+              <div class="search-result-bucket__annotation-cards-container" data-ref="content">
+                <ol class="search-result-bucket__annotation-cards">
+                  {% for result in search_results.sorted_annotations %}
+                    {{ annotation_card(result, request, tag_link) }}
+                  {% endfor %}
+                </ol>
+                <div class="search-bucket-stats">
+                  {% if search_results.uri %}
+                    <h4 title="url" class="search-bucket-stats__key">
+                      {{ svg_icon('link', css_class='search-bucket-stats__icon') }}
+                      {% trans %}URL{% endtrans %}
+                    </h4>
+                    <div class="search-bucket-stats__val search-bucket-stats__url">
+                      <a class="link--plain"
+                         rel="nofollow noopener"
+                         href="{{ search_results.uri }}"
+                         target="_blank">{{ pretty_link(search_results.uri) }}</a>
+                    </div>
+                  {% endif %}
+                  <div class="u-stretch"></div>
+                  <button class="search-bucket-stats__collapse-view"
+                          data-ref="collapseView"
+                          title="Collapse view">
+                    {{ svg_icon('collapse-view', 'search-bucket-stats__collapse-view-icon') }}
+                    Collapse view
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
-        {% else %}
-          <strong>{{ zero_message }}</strong>
-        {% endif %}
-      </div>
-    {% endif %}
-
-    {% if group %}
-      {{ group_sidebar(group, group_edit_url, search_results.total, stats) }}
-    {% elif user %}
-      {{ user_sidebar(user, stats) }}
-    {% endif %}
-
-    <div class="js-share-widget is-hidden-when-loading">
-      {{ share_widget() }}
+        </li>
+      </ol>
     </div>
   </div>
 {% endblock %}

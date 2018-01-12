@@ -60,6 +60,32 @@
   align-items: center;
 }
 
+.nav-bar-links__via {
+  color: #fff;
+  border-radius: 2px;
+  padding: 10px 16px;
+
+  &:link {
+    background-color: #e50012;
+  }
+
+  &:visited {
+    background-color: #e50012;
+  }
+
+  &:hover {
+    background-color: #e93942;
+  }
+
+  &:active {
+    background-color: #99000f;
+  }
+
+  &.disabled {
+    background-color: #220003;
+  }
+}
+
 // Containers for links and dropdown menus displayed on the right-hand side of
 // the nav bar
 .nav-bar-links__item {

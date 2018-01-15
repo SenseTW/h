@@ -26,7 +26,7 @@ PAGE_SIZE = 200
 
 
 @view_defaults(route_name='activity.search',
-               renderer='h:templates/activity/search.html.jinja2')
+               renderer='h:templates/activity/annotation.html.jinja2')
 class SearchController(object):
     """View callables for the "activity.search" route."""
 
@@ -86,7 +86,7 @@ class SearchController(object):
 
 
 @view_defaults(route_name='group_read',
-               renderer='h:templates/activity/search.html.jinja2',
+               renderer='h:templates/activity/annotation.html.jinja2',
                effective_principals=security.Authenticated,
                request_method='GET')
 class GroupSearchController(SearchController):
@@ -264,7 +264,7 @@ class GroupSearchController(SearchController):
 
 
 @view_defaults(route_name='activity.user_search',
-               renderer='h:templates/activity/search.html.jinja2')
+               renderer='h:templates/activity/annotation.html.jinja2')
 class UserSearchController(SearchController):
     """View callables unique to the "activity.user_search" route."""
 
@@ -332,7 +332,7 @@ class UserSearchController(SearchController):
 
 
 @view_defaults(route_name='activity.annotation_search',
-               renderer='h:templates/activity/annotation.html.jinja2')
+               renderer='h:templates/activity/search.html.jinja2')
 class AnnotationSearchController(SearchController):
     """View callables unique to the "activity.annotation_search" route."""
 

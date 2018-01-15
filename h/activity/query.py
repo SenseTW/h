@@ -4,10 +4,12 @@ from __future__ import unicode_literals
 
 from collections import namedtuple
 
+import collections
 import newrelic.agent
 from pyramid.httpexceptions import HTTPFound
 from sqlalchemy.orm import subqueryload
 
+from h._compat import urlparse
 from h import links
 from h import presenters
 from h import storage
@@ -127,7 +129,7 @@ def execute(request, query, page_size):
     groups = {g.pubid: g for g in _fetch_groups(request.db, group_pubids)}
 
     # Add group information to buckets and present annotations
-    result.all_annotations = []
+    result.docs = dict()
     for timeframe in result.timeframes:
         for bucket in timeframe.document_buckets.values():
             bucket.presented_annotations = []
@@ -138,23 +140,42 @@ def execute(request, query, page_size):
                     'html_link': links.html_link(request, annotation),
                     'incontext_link': links.incontext_link(request, annotation)
                 })
-                result.all_annotations.append(annotation)
-    result.all_annotations = sorted(result.all_annotations, cmp=_sort_by_position);
-    if len(result.timeframes):
-        if len(result.timeframes[0].document_buckets.values()):
-            bucket = result.timeframes[0].document_buckets.values()[0]
-            result.domain = bucket.domain
-            result.title = bucket.title
-            result.uri = bucket.uri
+                # XXX: redo the bucketing
+                if annotation.document.title not in result.docs:
+                    result.docs[annotation.document.title] = doc = {
+                        'title': annotation.document.title,
+                        'annotations': [],
+                        'tags': set(),
+                        'users': set(),
+                        'count': 0
+                    }
+
+                    presented_document = presenters.DocumentHTMLPresenter(annotation.document)
+
+                    if presented_document.web_uri:
+                        parsed = urlparse.urlparse(presented_document.web_uri)
+                        doc['uri'] = parsed.geturl()
+                        doc['domain'] = parsed.netloc
+                    else:
+                        doc['domain'] = _('Local file')
+
+                doc = result.docs[annotation.document.title]
+                doc['annotations'].append(annotation)
+                doc['tags'].update(set(annotation.tags))
+                doc['users'].add(annotation.userid)
+                doc['count'] += 1
+    for key in result.docs:
+        doc = result.docs[key]
+        doc['annotations'] = sorted(doc['annotations'])
+        doc['sorted'] = []
+        for annotation in doc['annotations']:
+            doc['sorted'].append({
+                'annotation': presenters.AnnotationHTMLPresenter(annotation),
+                'group': groups.get(annotation.groupid),
+                'html_link': links.html_link(request, annotation),
+                'incontext_link': links.incontext_link(request, annotation)
+            })
     result.sorted_annotations = []
-    for annotation in result.all_annotations:
-        result.sorted_annotations.append({
-            'annotation': presenters.AnnotationHTMLPresenter(annotation),
-            'group': groups.get(annotation.groupid),
-            'html_link': links.html_link(request, annotation),
-            'incontext_link': links.incontext_link(request, annotation)
-        })
-    result.annotations_count = len(result.sorted_annotations)
 
     return result
 

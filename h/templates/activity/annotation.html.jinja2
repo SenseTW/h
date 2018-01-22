@@ -54,6 +54,18 @@
       {% endfor %}
     </ul>
   {% endif %}
+  <h4 title="annotators" class="search-bucket-stats__key">
+    {{ svg_icon('account', css_class='search-bucket-stats__icon') }}
+    {% trans %}Annotators{% endtrans %}
+  </h4>
+  <ul class="search-bucket-stats__val">
+    {% for user in bucket.users %}
+      <li class="search-bucket-stats__username">
+        <a class="link--plain"
+           href="{{ user_link(user) }}">{{ username_from_id(user) }}</a>
+      </li>
+    {% endfor %}
+  </ul>
   {% if bucket.uri %}
     <h4 title="url" div class="search-bucket-stats__key">
       {{ svg_icon('link', css_class='search-bucket-stats__icon') }}
@@ -80,7 +92,7 @@
 {#
   A collapsible bucket/group of annotations
 #}
-{% macro search_result_bucket(bucket, result) %}
+{% macro search_result_bucket(bucket) %}
 <div class="search-result-bucket js-search-bucket">
 
   {# The header is the clickable area that expands/collapses the bucket when
@@ -118,7 +130,7 @@
   <div class="search-result-bucket__content">
     <div class="search-result-bucket__annotation-cards-container" data-ref="content">
       <ol class="search-result-bucket__annotation-cards">
-        {% for result in bucket.sorted_annotations %}
+        {% for result in bucket.presented_annotations %}
           {{ annotation_card(result, request, tag_link) }}
         {% endfor %}
       </ol>
@@ -364,96 +376,17 @@
 
         <ol class="search-results__list"
             role="list"
-            aria-label="Search results grouped by data">
-          {% for doc in search_results.docs.values() %}
+            aria-label="Search results grouped by date">
+          {% for bucket in search_results.docs.values() %}
           <li role="listitem">
-            <div class="search-result-bucket js-search-bucket">
-              <div class="search-result-bucket__header" data-ref="header">
-                <div class="search-result-bucket__domain">
-                  <span class="search-result-bucket__domain-text">{{ doc['domain'] }}</span>
-                  <a class="link--plain search-result-bucket__domain-link"
-                     href="#"
-                     title="Visit annotations in context"
-                     target="_blank"
-                     data-ref="domainLink">
-                     {{ doc['domain'] }}
-                     {{ svg_icon('up-right-arrow', css_class='search-result-bucket__incontext-icon')  }}</a>
-                </div>
-                <div class="search-result-bucket__title-and-annotations-count">
-                  <a title="expand annotations for this url" data-ref="title" href="#" class="search-result-bucket__title">
-                  {% if doc['title'] %}
-                    {{ doc['title'] }}
-                  {% else %}
-                    {% trans %}Untitled document{% endtrans %}
-                  {% endif %}
-                  </a>
-                  <div title="{{ doc['count'] }} annotations added"
-                       class="search-result-bucket__annotations-count">
-                    <div class="search-result-bucket__annotations-count-container">
-                      {{ doc['count'] }}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="search-result-bucket__content">
-                <div class="search-result-bucket__annotation-cards-container" data-ref="content">
-                  <ol class="search-result-bucket__annotation-cards">
-                    {% for result in doc['sorted'] %}
-                      {{ annotation_card(result, request, tag_link) }}
-                    {% endfor %}
-                  </ol>
-                  <div class="search-bucket-stats">
-                    {% if doc['tags'] %}
-                      <h4 title="tags" class="search-bucket-stats__key">
-                        {{ svg_icon('tag', css_class='search-bucket-stats__icon') }}
-                        {% trans %}Tags{% endtrans %}
-                      </h4>
-                      <ul class="search-bucket-stats__val">
-                        {% for tag in doc['tags'] %}
-                          <li><a class="link--plain"
-                                 href="{{ tag_link(tag) }}">{{ tag }}</a></li>
-                        {% endfor %}
-                      </ul>
-                    {% endif %}
-                    <h4 title="annotators" class="search-bucket-stats__key">
-                      {{ svg_icon('account', css_class='search-bucket-stats__icon') }}
-                      {% trans %}Annotators{% endtrans %}
-                    </h4>
-                    <ul class="search-bucket-stats__val">
-                      {% for user in doc['users'] %}
-                        <li class="search-bucket-stats__username">
-                          <a class="link--plain"
-                             href="{{ user_link(user) }}">{{ username_from_id(user) }}</a>
-                        </li>
-                      {% endfor %}
-                    </ul>
-                    {% if doc['uri'] %}
-                      <h4 title="url" class="search-bucket-stats__key">
-                        {{ svg_icon('link', css_class='search-bucket-stats__icon') }}
-                        {% trans %}URL{% endtrans %}
-                      </h4>
-                      <div class="search-bucket-stats__val search-bucket-stats__url">
-                        <a class="link--plain"
-                           rel="nofollow noopener"
-                           href="{{ doc['uri'] }}"
-                           target="_blank">{{ pretty_link(doc['uri']) }}</a>
-                      </div>
-                    {% endif %}
-                    <div class="u-stretch"></div>
-                    <button class="search-bucket-stats__collapse-view"
-                            data-ref="collapseView"
-                            title="Collapse view">
-                      {{ svg_icon('collapse-view', 'search-bucket-stats__collapse-view-icon') }}
-                      Collapse view
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+            {{ search_result_bucket(bucket) }}
           </li>
           {% endfor %}
         </ol>
+
+        {% if page.max > 1 %}
+          {% include "h:templates/includes/paginator.html.jinja2" %}
+        {% endif %}
       </div>
     {% else %}
       <div class="search-result-zero {%- if more_info %} search-result-hide-on-small-screens{% endif %}">
@@ -507,6 +440,16 @@
         {% endif %}
       </div>
     {% endif %}
+
+    {% if group %}
+      {{ group_sidebar(group, group_edit_url, search_results.total, stats) }}
+    {% elif user %}
+      {{ user_sidebar(user, stats) }}
+    {% endif %}
+
+    <div class="js-share-widget is-hidden-when-loading">
+      {{ share_widget() }}
+    </div>
   </div>
 {% endblock %}
 

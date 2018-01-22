@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 from collections import namedtuple
 
 import collections
+import types
 import newrelic.agent
 from pyramid.httpexceptions import HTTPFound
 from sqlalchemy.orm import subqueryload
@@ -104,6 +105,13 @@ def check_url(request, query, unparse=parser.unparse):
     if redirect is not None:
         raise HTTPFound(location=redirect)
 
+def _incontext_link(self, request):
+    """
+    Mimic the incontext_link method of the DocumentBucket class.
+    """
+    if len(self.annotations) == 0:
+        return None
+    return links.incontext_link(request, self.annotations[0])
 
 @newrelic.agent.function_trace()
 def execute(request, query, page_size):
@@ -140,42 +148,41 @@ def execute(request, query, page_size):
                     'html_link': links.html_link(request, annotation),
                     'incontext_link': links.incontext_link(request, annotation)
                 })
-                # XXX: redo the bucketing
+                # XXX: redo the bucketing, fake a bucket
                 if annotation.document.title not in result.docs:
-                    result.docs[annotation.document.title] = doc = {
-                        'title': annotation.document.title,
-                        'annotations': [],
-                        'tags': set(),
-                        'users': set(),
-                        'count': 0
-                    }
+                    result.docs[annotation.document.title] = doc = lambda: None
+                    doc.title = annotation.document.title
+                    doc.annotations = []
+                    doc.tags = set()
+                    doc.users = set()
+                    doc.annotations_count = 0
+                    doc.incontext_link = types.MethodType(_incontext_link, doc)
 
                     presented_document = presenters.DocumentHTMLPresenter(annotation.document)
 
                     if presented_document.web_uri:
                         parsed = urlparse.urlparse(presented_document.web_uri)
-                        doc['uri'] = parsed.geturl()
-                        doc['domain'] = parsed.netloc
+                        doc.uri = parsed.geturl()
+                        doc.domain = parsed.netloc
                     else:
-                        doc['domain'] = _('Local file')
+                        doc.domain = _('Local file')
 
                 doc = result.docs[annotation.document.title]
-                doc['annotations'].append(annotation)
-                doc['tags'].update(set(annotation.tags))
-                doc['users'].add(annotation.userid)
-                doc['count'] += 1
+                doc.annotations.append(annotation)
+                doc.tags.update(set(annotation.tags))
+                doc.users.add(annotation.userid)
+                doc.annotations_count += 1
     for key in result.docs:
         doc = result.docs[key]
-        doc['annotations'] = sorted(doc['annotations'])
-        doc['sorted'] = []
-        for annotation in doc['annotations']:
-            doc['sorted'].append({
+        doc.annotations = sorted(doc.annotations, cmp=_sort_by_position)
+        doc.presented_annotations = []
+        for annotation in doc.annotations:
+            doc.presented_annotations.append({
                 'annotation': presenters.AnnotationHTMLPresenter(annotation),
                 'group': groups.get(annotation.groupid),
                 'html_link': links.html_link(request, annotation),
                 'incontext_link': links.incontext_link(request, annotation)
             })
-    result.sorted_annotations = []
 
     return result
 

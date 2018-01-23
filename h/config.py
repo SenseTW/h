@@ -70,6 +70,7 @@ SETTINGS = [
                       message='use the AUTHORITY environment variable instead'),
     EnvSetting('h.authority', 'AUTHORITY'),
     EnvSetting('h.bouncer_url', 'BOUNCER_URL'),
+    EnvSetting('h.via_url', 'VIA_URL'),
 
     EnvSetting('h.client_url', 'CLIENT_URL'),
 

@@ -38,7 +38,11 @@ def incontext_link(request, annotation):
     """Generate a link to an annotation on the page where it was made."""
     bouncer_url = request.registry.settings.get('h.bouncer_url')
     if not bouncer_url:
-        return None
+        via_url = request.registry.settings.get('h.via_url')
+        if not via_url:
+            return None
+        link = via_url + '/' + annotation.target_uri
+        return link
 
     link = urlparse.urljoin(bouncer_url, annotation.thread_root_id)
     uri = annotation.target_uri

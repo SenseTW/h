@@ -17,7 +17,7 @@
 /reset_password        internal-prefix account_reset
 
 # Blog redirects
-/blog                                                  prefix https://web.hypothes.is/blog
+/blog                                                  prefix https://blog.sense.tw/
 
 # WordPress content
 /a-more-perfect-union-annotatathon                     exact https://web.hypothes.is/a-more-perfect-union-annotatathon/

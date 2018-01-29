@@ -31,7 +31,7 @@ if (!Element.prototype.remove) {
 // URL constructor, required by IE 10/11,
 // early versions of Microsoft Edge.
 try {
-  new window.URL('https://hypothes.is');
+  new window.URL('https://sense.tw');
 } catch (err) {
   require('js-polyfills/url');
 }

@@ -128,7 +128,7 @@ UNRESERVED_QUERY_VALUE = "-._~:@!$'()*,="
 # The string that gets prefixed onto a URI if you paste the URI into our Via
 # form. For example pasting https://example.com would
 # redirect your browser to https://via.hypothes.is/https://example.com.
-VIA_PREFIX = "https://via.hypothes.is/"
+VIA_PREFIX = "https://via.sense.tw/"
 
 
 def normalize(uristr):

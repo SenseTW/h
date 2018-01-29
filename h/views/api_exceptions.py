@@ -50,6 +50,6 @@ def json_error(request):
                 "application wasn't able to load this page. The team has "
                 "been notified and we'll fix it shortly. If the problem "
                 "persists or you'd like more information please email "
-                "support@hypothes.is with the subject 'Internal Server "
+                "support@sense.tw with the subject 'Internal Server "
                 "Error'.")
     return {'status': 'failure', 'reason': message}

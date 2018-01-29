@@ -18,6 +18,7 @@
 
 # Blog redirects
 /blog                                                  prefix https://blog.sense.tw/
+/blog/                                                 prefix https://blog.sense.tw/
 
 # WordPress content
 /a-more-perfect-union-annotatathon                     exact https://web.hypothes.is/a-more-perfect-union-annotatathon/

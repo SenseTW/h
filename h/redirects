@@ -29,8 +29,8 @@
 /aak-slack/                                            exact https://web.hypothes.is/aak-slack/
 /about-education                                       exact https://web.hypothes.is/about-education/
 /about-education/                                      exact https://web.hypothes.is/about-education/
-/about                                                 exact https://web.hypothes.is/about/
-/about/                                                exact https://web.hypothes.is/about/
+/about                                                 exact http://beta.hackfoldr.org/sense-tw
+/about/                                                exact http://beta.hackfoldr.org/sense-tw
 /adding-links-images-and-videos                        exact https://web.hypothes.is/adding-links-images-and-videos/
 /adding-links-images-and-videos/                       exact https://web.hypothes.is/adding-links-images-and-videos/
 /adopt-a-poem                                          exact https://web.hypothes.is/adopt-a-poem/

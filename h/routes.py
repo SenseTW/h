@@ -151,6 +151,7 @@ def includeme(config):
     config.add_route('about', '/about/', static=True)
     config.add_route('bioscience', '/bioscience/', static=True)
     config.add_route('blog', '/blog/', static=True)
+    config.add_route('repos', '/repos/', static=True)
     config.add_route(
         'chrome-extension',
         'https://chrome.google.com/webstore/detail/bjfhmglciegochdpefhhlphglcehbmek',

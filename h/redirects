@@ -17,9 +17,13 @@
 /reset_password        internal-prefix account_reset
 
 # Blog redirects
-/blog                                                  prefix https://blog.sense.tw/
-/blog/                                                 prefix https://blog.sense.tw/
+/blog                                                  prefix https://blog.sense.tw
+/blog/                                                 prefix https://blog.sense.tw
 
 # WordPress content
 /about                                                 exact http://beta.hackfoldr.org/sense-tw
 /about/                                                exact http://beta.hackfoldr.org/sense-tw
+
+# GitHub repos
+/repos                                                 exact https://github.com/g0vggv
+/repos/                                                exact https://github.com/g0vggv

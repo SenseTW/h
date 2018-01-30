@@ -19,6 +19,8 @@
 # Blog redirects
 /blog                                                  prefix https://blog.sense.tw
 /blog/                                                 prefix https://blog.sense.tw
+/terms-of-service                                      prefix https://hackmd.io/IzAcGYEMCNNBaAZgBgCwDZ4ccekBM008ArMOjMsAKYCcJq1QA===?view
+/terms-of-service/                                     prefix https://hackmd.io/IzAcGYEMCNNBaAZgBgCwDZ4ccekBM008ArMOjMsAKYCcJq1QA===?view
 
 # WordPress content
 /about                                                 exact http://beta.hackfoldr.org/sense-tw

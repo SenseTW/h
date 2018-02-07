@@ -23,8 +23,8 @@
 /terms-of-service/                                     prefix https://hackmd.io/IzAcGYEMCNNBaAZgBgCwDZ4ccekBM008ArMOjMsAKYCcJq1QA===?view
 
 # WordPress content
-/about                                                 exact http://beta.hackfoldr.org/sense-tw
-/about/                                                exact http://beta.hackfoldr.org/sense-tw
+/about                                                 exact http://sensetw.strikingly.com
+/about/                                                exact http://sensetw.strikingly.com
 
 # GitHub repos
 /repos                                                 exact https://github.com/g0vggv

@@ -162,9 +162,9 @@ def includeme(config):
     config.add_route('for-publishers', '/for-publishers/', static=True)
     config.add_route('fund', '/fund/', static=True)
     config.add_route(
-        'help-center', 'https://hypothesis.zendesk.com/hc/en-us', static=True)
+        'help-center', 'mailto:ggv-core@googlegroups.com', static=True)
     config.add_route(
-        'hypothesis-github', 'https://github.com/hypothesis', static=True)
+        'hypothesis-github', 'https://github.com/g0vggv', static=True)
     config.add_route(
         'hypothesis-twitter', 'https://twitter.com/hypothes_is', static=True)
     config.add_route('jobs', '/jobs/', static=True)

@@ -162,7 +162,7 @@ def includeme(config):
     config.add_route('for-publishers', '/for-publishers/', static=True)
     config.add_route('fund', '/fund/', static=True)
     config.add_route(
-        'help-center', 'mailto:ggv-core@googlegroups.com', static=True)
+        'help-center', 'https://sense.tw/', static=True)
     config.add_route(
         'hypothesis-github', 'https://github.com/g0vggv', static=True)
     config.add_route(

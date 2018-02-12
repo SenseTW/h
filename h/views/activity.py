@@ -5,6 +5,8 @@
 from __future__ import unicode_literals
 
 import urlparse
+from datetime import datetime, timedelta
+import jwt
 
 from jinja2 import Markup
 from pyramid import httpexceptions
@@ -13,6 +15,7 @@ from pyramid.view import view_config
 from pyramid.view import view_defaults
 
 from h import util
+from h.models import AuthClient
 from h.activity import query
 from h.i18n import TranslationString as _
 from h.links import pretty_link
@@ -35,6 +38,19 @@ class SearchController(object):
 
     @view_config(request_method='GET')
     def search(self):
+        # If the user is just logged-in in 10 seconds, create JWT grant tokens
+        # for each JWT clients.
+        user = self.request.user
+        grant_tokens = []
+        if user is not None and \
+           datetime.utcnow() < user.last_login_date + timedelta(seconds=10):
+            clients = self.request.db.query(AuthClient) \
+                                     .order_by(AuthClient.name.asc()) \
+                                     .all()
+            for client in clients:
+                if client.secret is not None:
+                    grant_tokens.append(self._create_grant_token(user.username, client))
+
         q = query.extract(self.request)
 
         # Check whether a redirect is required.
@@ -82,7 +98,21 @@ class SearchController(object):
             'username_from_id': username_from_id,
             # The message that is shown (only) if there's no search results.
             'zero_message': _('No annotations matched your search.'),
+            'grant_tokens': enumerate(grant_tokens),
         }
+
+    def _create_grant_token(self, username, client):
+        now = datetime.utcnow()
+        userid = 'acct:{username}@{authority}'.format(username=username,
+                                                      authority=client.authority)
+        payload = {
+            'aud': self.request.domain,
+            'iss': client.id,
+            'sub': userid,
+            'nbf': now,
+            'exp': now + timedelta(seconds=10),
+        }
+        return jwt.encode(payload, client.secret, algorithm='HS256')
 
 
 @view_defaults(route_name='group_read',

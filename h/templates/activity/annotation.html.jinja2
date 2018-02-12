@@ -359,6 +359,45 @@
 {% endblock %}
 
 {% block content %}
+  <script>
+    var domain = window.location.hostname;
+    var key = 'hypothesis.oauth.' + domain + '.token';
+    var grantTokens = [];
+    var i, token, data, request;
+
+    {% for i, token in grant_tokens %}
+      grantTokens[{{ i }}] = '{{ token }}';
+    {% endfor %}
+
+    // exchange an access token with any grant token
+    for (i in grantTokens) {
+      data = 'grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer&assertion=' + grantTokens[i];
+      request = new XMLHttpRequest();
+      request.onreadystatechange = function () {
+        var token;
+        if (request.readyState === 4 && request.status === 200) {
+          // clients is already logged-in
+          if (localStorage.getItem(key)) return
+
+          // create the new token
+          // see `tokenInfoFrom` function in `client/src/sidebar/oauth-auth.js`
+          // for more information
+          token = JSON.parse(this.responseText);
+          token = {
+            accessToken: token.access_token,
+            expiresAt: Date.now() + ((token.expires_in - 10) * 1000),
+            refreshToken: token.refresh_token
+          };
+
+          // trigger the storage event for clients
+          localStorage.setItem(key, JSON.stringify(token));
+        }
+      };
+      request.open('POST', '/api/token', true);
+      request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+      request.send(data);
+    }
+  </script>
   <div class="search-result-container">
     {% if group %}
       {{ search_result_nav(group.name) }}

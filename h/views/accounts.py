@@ -296,10 +296,10 @@ class ResetController(object):
 class SignupController(object):
 
     def __init__(self, request):
-        tos_link = ('<a class="link" href="/terms-of-service">' +
+        tos_link = ('<a class="link" target="_blank" href="/terms-of-service">' +
                     _('Terms of Service') +
                     '</a>')
-        cg_link = ('<a class="link" href="/community-guidelines">' +
+        cg_link = ('<a class="link" target="_blank" href="/community-guidelines">' +
                    _('Community Guidelines') +
                    '</a>')
         form_footer = _(

@@ -45,6 +45,9 @@ def incontext_link(request, annotation):
         return link
 
     link = urlparse.urljoin(bouncer_url, annotation.thread_root_id)
+    return link
+
+    # skip this part to short URIs
     uri = annotation.target_uri
     if uri.startswith(('http://', 'https://')):
         # We can't use urljoin here, because if it detects the second argument

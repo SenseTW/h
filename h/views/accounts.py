@@ -597,7 +597,7 @@ class NotificationsController(object):
 
 @view_defaults(route_name='account_developer',
                renderer='h:templates/accounts/developer.html.jinja2',
-               effective_principals=security.Authenticated)
+               effective_principals=security.DENY_ALL)
 class DeveloperController(object):
 
     def __init__(self, request):

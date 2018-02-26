@@ -431,9 +431,6 @@
       <div class="search-result-zero {%- if more_info %} search-result-hide-on-small-screens{% endif %}">
         {% if zero_message == '__SHOW_GETTING_STARTED__' %}
           <div>
-            <h2 class="search-result-zero__title">
-              {%- trans %}How to get started{% endtrans -%}
-            </h2>
             <ol class="search-result-zero__list">
               <!--
               <li class="search-result-zero__list-item">
@@ -443,6 +440,22 @@
                 </a>
               </li>
               -->
+              <li class="search-result-zero__list-item">
+                <img src="{{ asset_url('images/annotating.svg') }}" height="200" />
+                <h2>註解新文章</h2>
+                <p>點選「註解新文章」按鈕，上傳 PDF 文件，或是複製文章網頁連結，貼到 <a class="link" href="https://via.sense.tw">via.sense.tw</a> 的輸入欄位，按下「開始」。</p>
+              </li>
+              <li class="search-result-zero__list-item">
+                <img src="{{ asset_url('images/tagging.svg') }}" height="200" />
+                <h2>編輯註記</h2>
+                <p>進入編輯頁面，反白文句，新增留言或是新增標記。</p>
+              </li>
+              <li class="search-result-zero__list-item">
+                <img src="{{ asset_url('images/sharing.svg') }}" height="200" />
+                <h2>分享連結</h2>
+                <p>按下「分享」，複製文件連結。分享文章連結，邀請朋友對文章與留言進行討論。</p>
+              </li>
+              <!--
               <li class="search-result-zero__list-item">
               點選 <a href='https://via.sense.tw'><button>這裡</button></a> 開始註記
               </li>
@@ -462,7 +475,6 @@
                   </a>
                 {%- endtrans -%}
               </li>
-              <!--
               <li class="search-result-zero__list-item">
                 {%- trans -%}
                   Read more about

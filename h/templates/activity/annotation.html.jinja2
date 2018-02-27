@@ -432,58 +432,21 @@
         {% if zero_message == '__SHOW_GETTING_STARTED__' %}
           <div>
             <ol class="search-result-zero__list">
-              <!--
-              <li class="search-result-zero__list-item">
-                <a class="link"
-                       href="{{ request.route_url('chrome-extension') }}">
-                  {%- trans %}Install our Chrome extension{% endtrans -%}
-                </a>
-              </li>
-              -->
               <li class="search-result-zero__list-item">
                 <img src="{{ asset_url('images/annotating.svg') }}" height="200" />
-                <h2>註解新文章</h2>
-                <p>點選「註解新文章」按鈕，上傳 PDF 文件，或是複製文章網頁連結，貼到 <a class="link" href="https://via.sense.tw">via.sense.tw</a> 的輸入欄位，按下「開始」。</p>
+                <h2>{%- trans %}Choose an Article{% endtrans -%}</h2>
+                <p>{%- trans %}Click the "New Article" button to upload a PDF document. Or copy the article URL to <a class="link href="https://via.sense.tw">via.sense.tw</a> and click "Start".{% endtrans -%}</p>
               </li>
               <li class="search-result-zero__list-item">
                 <img src="{{ asset_url('images/tagging.svg') }}" height="200" />
-                <h2>編輯註記</h2>
-                <p>進入編輯頁面，反白文句，新增留言或是新增標記。</p>
+                <h2>{%- trans %}Annotate It{% endtrans -%}</h2>
+                <p>{%- trans %}Select text and highlight or annotate it in the sidebar.{% endtrans -%}</p>
               </li>
               <li class="search-result-zero__list-item">
                 <img src="{{ asset_url('images/sharing.svg') }}" height="200" />
-                <h2>分享連結</h2>
-                <p>按下「分享」，複製文件連結。分享文章連結，邀請朋友對文章與留言進行討論。</p>
+                <h2>{%- trans %}Share It{% endtrans -%}</h2>
+                <p>{%- trans %}Click the share button and copy the article URL to share it. Invite your friends to annotate together.{% endtrans -%}</p>
               </li>
-              <!--
-              <li class="search-result-zero__list-item">
-              點選 <a href='https://via.sense.tw'><button>這裡</button></a> 開始註記
-              </li>
-              <li class="search-result-zero__list-item">
-                {%- trans url=request.route_url('activity.search') -%}
-                  Check out some of the
-                  <a class="link" href="{{ url }}">
-                    recently annotated documents
-                  </a>
-                {%- endtrans -%}
-              </li>
-              <li class="search-result-zero__list-item">
-                {%- trans url=user.edit_url -%}
-                  Let other users know more about you by
-                  <a class="link" href="{{ url }}">
-                    adding more information to your profile
-                  </a>
-                {%- endtrans -%}
-              </li>
-              <li class="search-result-zero__list-item">
-                {%- trans -%}
-                  Read more about
-                  <a class="link" href="https://sense.tw/annotating-with-groups/">
-                    how to annotate with groups
-                  </a>
-                {%- endtrans -%}
-              </li>
-              -->
             </ol>
           </div>
         {% else %}

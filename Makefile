@@ -54,6 +54,27 @@ node_modules/.uptodate: package.json
 	@node_modules/.bin/check-dependencies 2>/dev/null || npm install
 	@touch $@
 
+# i18n
+PY_FILES = $(shell find h/ -type f -name '*.py')
+JINJA2_FILES = $(shell find h/templates -type f -name '*.jinja2')
+LOCALE_DOMAIN = h
+LOCALE_PATH = h/locale
+PO_FILES = $(shell find $(LOCALE_PATH) -type f -name '*.po')
+MO_FILES = $(patsubst %.po, %.mo, $(PO_FILES))
+
+i18n: $(MO_FILES)
+
+i18n-zh_TW: $(LOCALE_PATH)/zh_TW/LC_MESSAGES/$(LOCALE_DOMAIN).po
+
+$(LOCALE_PATH)/zh_TW/LC_MESSAGES/$(LOCALE_DOMAIN).po: $(LOCALE_PATH)/$(LOCALE_DOMAIN).pot
+	@pybabel update -l zh_TW -D $(LOCALE_DOMAIN) -d $(LOCALE_PATH) -i $(LOCALE_PATH)/$(LOCALE_DOMAIN).pot
+
+$(LOCALE_PATH)/%/LC_MESSAGES/$(LOCALE_DOMAIN).mo: $(LOCALE_PATH)/%/LC_MESSAGES/$(LOCALE_DOMAIN).po
+	@pybabel compile -f -D $(LOCALE_DOMAIN) -d $(LOCALE_PATH)
+
+$(LOCALE_PATH)/$(LOCALE_DOMAIN).pot: $(PY_FILES) $(JINJA2_FILES)
+	@pybabel extract -F babel.cfg h -o $(LOCALE_PATH)/$(LOCALE_DOMAIN).pot
+
 # Self documenting Makefile
 .PHONY: help
 help:
@@ -62,3 +83,5 @@ help:
 	@echo " dev        Run the development H server locally"
 	@echo " docker     Build hypothesis/hypothesis docker image"
 	@echo " test       Run the test suite (default)"
+	@echo " i18n-zh_TW Update the zh_TW language file"
+	@echo " i18n       Compile language files"

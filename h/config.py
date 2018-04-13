@@ -50,6 +50,7 @@ SETTINGS = [
     EnvSetting('mail.default_sender', 'MAIL_DEFAULT_SENDER'),
     EnvSetting('mail.host', 'MAIL_HOST'),
     EnvSetting('mail.port', 'MAIL_PORT', type=int),
+    EnvSetting('mail.debug', 'MAIL_DEBUG', type=int),
     EnvSetting('sqlalchemy.url', 'DATABASE_URL', type=database_url),
     EnvSetting('statsd.host', 'STATSD_HOST'),
     EnvSetting('statsd.port', 'STATSD_PORT', type=int),

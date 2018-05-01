@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hserver-stage
+  labels:
+    run: hserver-stage
+spec:
+  type: NodePort
+  ports:
+  - port: 5000
+    targetPort: 5000
+    nodePort: 30081
+    protocol: TCP
+    name: hserver-stage-http
+  selector:
+    service: hserver-stage

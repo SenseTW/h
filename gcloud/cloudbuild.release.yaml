@@ -1,0 +1,12 @@
+steps:
+- name: 'gcr.io/cloud-builders/kubectl'
+  args:
+  - 'set'
+  - 'image'
+  - 'deployment/hserver'
+  - 'hserver=asia.gcr.io/$PROJECT_ID/hserver:$COMMIT_SHA'
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-c'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=hypo'
+
+#kubectl create configmap nginx-proxy-conf --from-file=proxy.conf

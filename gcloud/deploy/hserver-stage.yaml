@@ -1,0 +1,94 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: hserver-stage
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: hserver-stage
+    spec:
+      containers:
+        - image: nginx
+          name: hserver-web
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+          lifecycle:
+            preStop:
+              exec:
+                command: ["/usr/sbin/nginx","-s","quit"]
+          volumeMounts:
+            - name: "nginx-proxy-conf"
+              mountPath: "/etc/nginx/conf.d"
+            - name: hserver-socket
+              mountPath: /tmp
+          ports:
+            - containerPort: 5000
+              name: hserver-tcp
+        - image: asia.gcr.io/ggv-notetool/hserver
+          imagePullPolicy: Always
+          name: hserver-stage
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+          envFrom:
+            - configMapRef:
+                name: hserver-config
+          volumeMounts:
+            - name: hserver-socket
+              mountPath: /tmp
+            - name: h-config
+              mountPath: /var/lib/hypothesis/conf
+        - image: b.gcr.io/cloudsql-docker/gce-proxy:1.11
+          name: cloudsql-proxy
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+          command: ["/cloud_sql_proxy", "--dir=/cloudsql",
+                    "-instances=ggv-notetool:asia-east1:hypothsis=tcp:5432",
+                    "-credential_file=/secrets/cloudsql/credentials.json"]
+          volumeMounts:
+            - name: cloudsql-instance-credentials
+              mountPath: /secrets/cloudsql
+              readOnly: true
+            - name: ssl-certs
+              mountPath: /etc/ssl/certs
+            - name: cloudsql
+              mountPath: /cloudsql
+        - image: namshi/smtp
+          name: smtp
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "10m"
+          ports:
+            - containerPort: 25
+              name: smtp-tcp
+          envFrom:
+            - configMapRef:
+                name: smtp-config
+      volumes:
+        - name: cloudsql-instance-credentials
+          secret:
+            secretName: cloudsql-instance-credentials
+        - name: ssl-certs
+          hostPath:
+            path: /etc/ssl/certs
+        - name: cloudsql
+          emptyDir:
+        - name: hserver-socket
+          emptyDir:
+        - name: h-config
+          configMap:
+            name: h-stage-config
+        - name: nginx-proxy-conf
+          configMap:
+            name: h-stage-config
+            items:
+              - key: "nginx.conf"
+                path: "nginx.conf"

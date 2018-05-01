@@ -5,18 +5,10 @@ steps:
   args: ["push", "asia.gcr.io/$PROJECT_ID/hserver"]
 - name: 'gcr.io/cloud-builders/kubectl'
   args:
-  - 'replace'
-  - '-f'
-  - 'gcloud/nginx.yaml'
-  env:
-  - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-c'
-  - 'CLOUDSDK_CONTAINER_CLUSTER=hypo'
-- name: 'gcr.io/cloud-builders/kubectl'
-  args:
   - 'set'
   - 'image'
-  - 'deployment/hserver'
-  - 'hserver=asia.gcr.io/$PROJECT_ID/hserver:$COMMIT_SHA'
+  - 'deployment/hserver-stage'
+  - 'hserver-stage=asia.gcr.io/$PROJECT_ID/hserver:$COMMIT_SHA'
   env:
   - 'CLOUDSDK_COMPUTE_ZONE=asia-east1-c'
   - 'CLOUDSDK_CONTAINER_CLUSTER=hypo'

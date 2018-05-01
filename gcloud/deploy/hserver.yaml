@@ -41,6 +41,8 @@ spec:
           volumeMounts:
             - name: hserver-socket
               mountPath: /tmp
+            - name: h-config
+              mountPath: /var/lib/hypothesis/conf
         - image: b.gcr.io/cloudsql-docker/gce-proxy:1.11
           name: cloudsql-proxy
           resources:
@@ -81,9 +83,12 @@ spec:
           emptyDir:
         - name: hserver-socket
           emptyDir:
-        - name: "nginx-proxy-conf"
+        - name: h-config
           configMap:
-            name: "nginx-proxy-conf"
+            name: h-config
+        - name: nginx-proxy-conf
+          configMap:
+            name: h-config
             items:
               - key: "nginx.conf"
                 path: "nginx.conf"

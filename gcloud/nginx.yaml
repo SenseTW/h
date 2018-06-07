@@ -17,6 +17,14 @@ data:
         listen 5000;
         access_log /var/log/nginx/access.log h_upstream;
 
+        server_name sense.tw;
+        return 301 $scheme://h.sense.tw$request_uri;
+      }
+
+      server {
+        listen 5000;
+        access_log /var/log/nginx/access.log h_upstream;
+
         server_name _;
         server_tokens off;
 
